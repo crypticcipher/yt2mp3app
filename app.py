@@ -32,7 +32,9 @@ def download_mp3():
 	url = request.form["url"]
 	print("Someone just tried to download", url)
 
-	yt = YouTube(url, use_oauth=True, allow_oauth_cache=True)
+	yt = YouTube(url)
+
+	# use_oauth=True, allow_oauth_cache=True
 
 	video = yt.streams.filter(only_audio=True).first()
 
