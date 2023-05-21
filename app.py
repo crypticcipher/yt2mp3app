@@ -5,14 +5,14 @@ from pytube import YouTube
 import os
 # import youtube_dl
 
-ydl_opts = {
-    'format': 'bestaudio/best',
-    'postprocessors': [{
-    'key': 'FFmpegExtractAudio',
-    'preferredcodec': 'mp3',
-    'preferredquality': '192',
-    }],
-}
+# ydl_opts = {
+#     'format': 'bestaudio/best',
+#     'postprocessors': [{
+#     'key': 'FFmpegExtractAudio',
+#     'preferredcodec': 'mp3',
+#     'preferredquality': '192',
+#     }],
+# }
 
 @app.route('/')
 def home():
@@ -34,12 +34,12 @@ def download_mp3():
 
 	yt = YouTube(url)
 
-	# use_oauth=True, allow_oauth_cache=True
-
 	video = yt.streams.filter(only_audio=True).first()
+
 	out_file = video.download()
+
 	base, ext = os.path.splitext(out_file)
-	new_file = base + ".mp3"
+	new_file = base + '.mp3'
 	os.rename(out_file, new_file)
 
 	return send_file(new_file,as_attachment=True)
