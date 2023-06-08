@@ -44,3 +44,9 @@
     }else{
         document.getElementById("cookieNotice").style.display = "block";
     }
+
+
+
+  function resetForm() {
+    document.getElementById("download-form").reset();
+  }

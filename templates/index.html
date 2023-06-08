@@ -82,9 +82,9 @@
             <p class="lead">Fast, Secure, Virus-free & Pop-up free.
             </p>
             <p class="lead">
-                <form action="/download" autocomplete="off" method="post">
+                <form action="/download" id="download-form" autocomplete="off" method="post">
                     <input type="text" style="border-radius: 30px;" class="form-control" placeholder="Enter Video URL Here..." name="url">
-                    <button style="border-radius: 30px;" type="submit" formaction="/download" class="btn btn-success mt-3">Download .mp3</button>
+                    <button style="border-radius: 30px;" type="submit" formaction="/download" class="btn btn-success mt-3" onclick="resetForm()">Download .mp3</button>
                 </form>
             </p>
         <!-- <p>Currently under construction. 
