@@ -46,7 +46,4 @@
     }
 
 
-
-  function resetForm() {
-    document.getElementById("download-form").reset();
-  }
+ 
