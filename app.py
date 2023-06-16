@@ -48,6 +48,25 @@ def download_mp3():
 	return send_file(new_file,as_attachment=True)
 
 
+
+@app.route('/downloadvid', methods=["POST", "GET"])
+def download_video():
+	url = request.form["url"]
+	print("Someone just tried to download", url)
+
+	yt = YouTube(url)
+
+	video = yt.streams.filter(only_audio=True).first()
+
+	out_file = video.download()
+
+	base, ext = os.path.splitext(out_file)
+	new_file = base + '.mp4'
+	os.rename(out_file, new_file)
+
+	return send_file(new_file,as_attachment=True)
+
+
 if __name__ == '__main__':
 	app.run(port=5000)
 	
