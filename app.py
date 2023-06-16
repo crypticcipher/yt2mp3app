@@ -47,7 +47,7 @@ def download_mp3():
 
 
 
-@app.route('/downloadvid', methods=["POST", "GET"])
+@app.route('/download', methods=["POST", "GET"])
 def download_video():
     url = request.form["url"]
     print("Someone just tried to download", url)
