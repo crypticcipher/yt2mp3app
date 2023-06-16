@@ -3,7 +3,9 @@ from flask import Flask, request, send_file, render_template, redirect
 app = Flask(__name__)
 from pytube import YouTube
 import os
-import youtube_dl
+
+
+# import youtube_dl
 
 # ydl_opts = {
 #     'format': 'bestaudio/best',
@@ -47,18 +49,18 @@ def download_mp3():
 
 
 
-@app.route('/download', methods=["POST", "GET"])
-def download_video():
-    url = request.form["url"]
-    print("Someone just tried to download", url)
-    with youtube_dl.YoutubeDL() as ydl:
-        url = ydl.extract_info(url, download=False)
-        print(url)
-        try:
-            download_link = url["entries"][-1]["formats"][-1]["url"]
-        except:
-            download_link = url["formats"][-1]["url"]
-        return redirect(download_link+"&dl=1")
+# @app.route('/downloadvid', methods=["POST", "GET"])
+# def download_video():
+#     url = request.form["url"]
+#     print("Someone just tried to download", url)
+#     with youtube_dl.YoutubeDL() as ydl:
+#         url = ydl.extract_info(url, download=False)
+#         print(url)
+#         try:
+#             download_link = url["entries"][-1]["formats"][-1]["url"]
+#         except:
+#             download_link = url["formats"][-1]["url"]
+#         return redirect(download_link+"&dl=1")
 
 
 
