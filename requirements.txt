@@ -115,4 +115,4 @@ widgetsnbextension==3.6.0
 WTForms==3.0.1
 youtube-dl==2021.12.17
 youtube-search-python==1.6.2
-yt-dlp==2022.2.4
+yt-dlp==2023.6.22
