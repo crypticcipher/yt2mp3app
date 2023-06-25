@@ -20,9 +20,7 @@ def about():
 def terms():
 	return render_template('terms-conditions.html')
 
-@app.route('/testing')
-def test():
-	return render_template('testing.html')
+
 
 @app.route('/download', methods=["POST", "GET"])
 def download_mp3():
