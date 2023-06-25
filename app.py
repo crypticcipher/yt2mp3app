@@ -6,6 +6,7 @@ from pytube import YouTube
 import os
 import yt_dlp
 import youtube_dl
+from ffmpeg import FFmpeg
 
 @app.route('/')
 def home():
@@ -18,6 +19,10 @@ def about():
 @app.route('/terms-conditions')
 def terms():
 	return render_template('terms-conditions.html')
+
+@app.route('/testing')
+def test():
+	return render_template('testing.html')
 
 @app.route('/download', methods=["POST", "GET"])
 def download_mp3():
@@ -69,6 +74,66 @@ def download_video():
     except Exception as e:
         flash(str(e))
         return render_template('index.html')
+    
+
+
+
+
+
+############## TESTING PAGE ONLY! ###################
+
+@app.route('/downloadtest', methods=["POST", "GET"])
+def download_mp3_testing():
+    try:
+        url = request.form.get("url", None)
+        if not url:
+            flash('Please enter a valid URL.')
+            return render_template('index.html')
+
+        ydl_opts = {
+            'outtmpl': 'downloads/%(title)s.%(ext)s',
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
+        
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=True)
+            filename = ydl.prepare_filename(info_dict)
+            filename = filename.rsplit(".", 1)[0] + ".mp3"  # Change extension to mp3
+            return send_from_directory('downloads', os.path.basename(filename), as_attachment=True)
+    except Exception as e:
+        flash(str(e))
+        return render_template('testing.html')
+
+
+
+
+@app.route('/downloadvidtest', methods=["POST", "GET"])
+def download_video_testing():
+    try:
+        url = request.form.get("url", None)
+        if not url:
+            flash('Please enter a valid URL.')
+            return render_template('index.html')
+
+        ydl_opts = {
+            'outtmpl': 'downloads/%(title)s.%(ext)s',
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+        }
+        
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=True)
+            filename = ydl.prepare_filename(info_dict)
+            return send_from_directory('downloads', os.path.basename(filename), as_attachment=True)
+    except Exception as e:
+        flash(str(e))
+        return render_template('testing.html')
+
+#####################################################
 
 if __name__ == '__main__':
 	app.run(port=5000, debug=True)
