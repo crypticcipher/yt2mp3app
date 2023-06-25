@@ -22,7 +22,7 @@ distlib==0.3.4
 entrypoints==0.4
 executing==0.8.3
 fabric==2.7.0
-ffmpeg-python==0.2.0
+# ffmpeg-python==0.2.0
 filelock==3.7.0
 Flask==2.1.2
 Flask-Cors==3.0.10
@@ -36,7 +36,7 @@ httpcore==0.15.0
 httpx==0.23.0
 idna==3.4
 imageio==2.22.0
-imageio-ffmpeg==0.4.7
+# imageio-ffmpeg==0.4.7
 invoke==1.7.1
 ipykernel==6.11.0
 ipython==8.2.0
