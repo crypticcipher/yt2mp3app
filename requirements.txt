@@ -36,7 +36,7 @@ httpcore==0.15.0
 httpx==0.23.0
 idna==3.4
 imageio==2.22.0
-# imageio-ffmpeg==0.4.7
+imageio-ffmpeg==0.4.7
 invoke==1.7.1
 ipykernel==6.11.0
 ipython==8.2.0

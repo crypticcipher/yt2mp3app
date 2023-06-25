@@ -47,9 +47,9 @@
 
 
  
-    //     document.getElementById('downloadForm').addEventListener('submit', function(){
-    //     // Clear form inputs after 100ms. The delay is to allow form submission before clearing.
-    //     setTimeout(function(){
-    //         document.getElementById('downloadForm').reset();
-    //     }, 100);
-    // });
+        document.getElementById('downloadForm').addEventListener('submit', function(){
+        // Clear form inputs after 100ms. The delay is to allow form submission before clearing.
+        setTimeout(function(){
+            document.getElementById('downloadForm').reset();
+        }, 100);
+    });
