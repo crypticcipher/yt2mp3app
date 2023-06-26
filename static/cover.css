@@ -9,6 +9,11 @@ a:hover {
   color: #fff;
 }
 
+#toast-container .toast-success {
+  background-color: #46b246;
+  
+}
+
 
 
 /* Custom default button */

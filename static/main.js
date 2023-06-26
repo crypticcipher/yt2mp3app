@@ -47,9 +47,56 @@
 
 
  
-        document.getElementById('downloadForm').addEventListener('submit', function(){
-        // Clear form inputs after 100ms. The delay is to allow form submission before clearing.
-        setTimeout(function(){
-            document.getElementById('downloadForm').reset();
-        }, 100);
+    //     document.getElementById('downloadForm').addEventListener('submit', function(){
+    //     // Clear form inputs after 100ms. The delay is to allow form submission before clearing.
+    //     setTimeout(function(){
+    //         document.getElementById('downloadForm').reset();
+    //     }, 100);
+    // });
+
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "10000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+      }
+
+      $(document).ready(function() {
+        $('#downloadVideoButton').click(function(e) {
+            e.preventDefault();
+            toastr.success('Video download has started. Please be patient, it might take a few moments. Thank you!');
+            
+            // Reset the form
+            setTimeout(function(){
+                $('#downloadForm').trigger('reset');
+            }, 100);
+    
+            // Submit the form
+            $('#downloadForm').attr('action', '/downloadvid').submit();
+        });
+    
+        $('#downloadMp3Button').click(function(e) {
+            e.preventDefault();
+            toastr.success('MP3 download has started. Please be patient, it might take a few moments. Thank you!');
+            
+            // Reset the form
+            setTimeout(function(){
+                $('#downloadForm').trigger('reset');
+            }, 100);
+    
+            // Submit the form
+            $('#downloadForm').attr('action', '/download').submit();
+        });
     });
