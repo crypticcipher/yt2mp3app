@@ -227,7 +227,17 @@ src="{{ url_for('static', filename='/main.js') }}"></script>
       RW.init({
           huid: "492214",
           uid: "d6d24d92ada719cde5ff3a880d640e67",
-          options: { "style": "flat_yellow" } 
+                      options: {
+                "advanced": {
+                    "text": {
+                      "ratePoor": "Bad",
+                        "rateThis": "Rate Us!"
+                    }
+                },
+                // "size": "medium",
+                "style": "oxygen",
+                "isDummy": false
+            } 
       });
       RW.render();
   };
