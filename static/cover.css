@@ -14,6 +14,11 @@ a:hover {
   opacity: 1;
 }
 
+.rw-ui-button{
+  visibility: hidden;
+}
+
+
 
 
 /* Custom default button */
