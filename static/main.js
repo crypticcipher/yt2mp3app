@@ -98,5 +98,6 @@
     
             // Submit the form
             $('#downloadForm').attr('action', '/download').submit();
+            
         });
     });
