@@ -11,7 +11,7 @@ a:hover {
 
 #toast-container .toast-success {
   background-color: #46b246;
-  
+  opacity: 1;
 }
 
 
