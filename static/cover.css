@@ -40,7 +40,7 @@ html,
 body {
   height: 100%;
   background: rgb(81, 17, 229);
-  background: linear-gradient(90deg, rgb(65, 0, 216) 7%, rgb(81, 54, 255) 40%, rgb(10, 165, 255) 100%);
+  background: radial-gradient(circle at 10% 20%, rgba(6, 0, 255, 0.61) 0%, rgb(191, 0, 255) 100.7%);
 }
 
 body {
